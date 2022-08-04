@@ -9,8 +9,8 @@ public class Client2Initializer extends Application{
     }
     @Override
     public void start(Stage primaryStage) throws Exception {
-        primaryStage.setScene(new Scene(FXMLLoader.load(this.getClass().getResource("viwes/Client2Form.fxml"))));
-        primaryStage.setTitle("ChatApp Test");
+        primaryStage.setScene(new Scene(FXMLLoader.load(this.getClass().getResource("views/loginForm2.fxml"))));
+        primaryStage.setTitle("live Chat");
         primaryStage.show();
     }
 }

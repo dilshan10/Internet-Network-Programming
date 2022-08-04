@@ -7,6 +7,8 @@ import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.util.Duration;
 
 import java.io.DataInputStream;
@@ -17,10 +19,10 @@ import java.time.LocalTime;
 
 public class Client3FormController {
     public TextArea txtChatArea;
-    public JFXTextField txtMassege;
     public Label lbltime;
 
     final int PORT= 5000;
+    public TextField txtMassege;
     Socket socket;
     DataInputStream dataInputStream;
     DataOutputStream dataOutputStream;
@@ -62,5 +64,8 @@ public class Client3FormController {
         );
         Clock.setCycleCount(Animation.INDEFINITE);
         Clock.play();
+    }
+
+    public void AddPhoto(MouseEvent mouseEvent) {
     }
 }

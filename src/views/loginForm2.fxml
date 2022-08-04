@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<AnchorPane fx:id="root" xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="controllers.LogingForm2Controllers"
+            prefHeight="400.0" prefWidth="600.0">
+    <children>
+        <TextField fx:id="txtUserName" layoutX="123.0" layoutY="248.0" prefHeight="25.0" prefWidth="312.0" promptText="User Name" />
+        <Button layoutX="447.0" layoutY="248.0" mnemonicParsing="false" onAction="#btnLoginOnAction" prefHeight="25.0" prefWidth="64.0" text="Log in" />
+        <ImageView fitHeight="112.0" fitWidth="113.0" layoutX="244.0" layoutY="114.0" pickOnBounds="true">
+            <image>
+                <Image url="@assets/149071.png" />
+            </image>
+        </ImageView>
+    </children>
+
+</AnchorPane>

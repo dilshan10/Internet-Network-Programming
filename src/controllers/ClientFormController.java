@@ -7,20 +7,21 @@ import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.util.Duration;
 
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.IOException;
+import java.io.*;
 import java.net.Socket;
 import java.time.LocalTime;
 
 public class ClientFormController {
     public TextArea txtChatArea;
-    public JFXTextField txtMassege;
     public Label lbltime;
 
     final int PORT= 5000;
+    public TextField txtMassege;
+    public Label lblUserName;
     Socket socket;
     DataInputStream dataInputStream;
     DataOutputStream dataOutputStream;
@@ -28,23 +29,26 @@ public class ClientFormController {
     String massage = "";
 
     public void initialize(){
-       setTime();
-        new Thread(() ->{
-            try {
-                socket = new Socket("localhost",5000);
+        setTime();
+        while (true) {
+            new Thread(() -> {
+                try {
+                    socket = new Socket("localhost", 5000);
 
-                dataInputStream = new DataInputStream(socket.getInputStream());
-                dataOutputStream = new DataOutputStream(socket.getOutputStream());
+                    dataInputStream = new DataInputStream(socket.getInputStream());
+                    dataOutputStream = new DataOutputStream(socket.getOutputStream());
 
-                while (!massage.equals("exit")){
-                   massage = dataInputStream.readUTF();
-                    txtChatArea.appendText("\n Server : " + massage);
+                    while (!massage.equals("exit")) {
+                        massage = dataInputStream.readUTF();
+                        txtChatArea.appendText("\n Server : " + massage);
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }).start();
+            }).start();
+        }
     }
+
     public void btnSendOnAction(ActionEvent actionEvent) throws IOException {
         dataOutputStream.writeUTF(txtMassege.getText().trim());
         dataOutputStream.flush();
@@ -62,5 +66,8 @@ public class ClientFormController {
         );
         Clock.setCycleCount(Animation.INDEFINITE);
         Clock.play();
+    }
+
+    public void AddPhoto(MouseEvent mouseEvent) {
     }
 }

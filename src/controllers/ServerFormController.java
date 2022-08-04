@@ -7,6 +7,7 @@ import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.util.Duration;
 
 import java.io.DataInputStream;
@@ -19,11 +20,11 @@ import java.time.LocalTime;
 
 public class ServerFormController {
     public TextArea txtChatArea;
-    public JFXTextField txtMassege;
     public Label lbltime;
 
     final int PORT= 5000;
     static ServerSocket serverSocket;
+    public TextField txtMassege;
     Socket accept;
     DataInputStream dataInputStream;
     DataOutputStream dataOutputStream;

@@ -9,7 +9,7 @@ public class ServerInitializer extends Application {
     }
     @Override
     public void start(Stage primaryStage) throws Exception {
-        primaryStage.setScene(new Scene(FXMLLoader.load(this.getClass().getResource("viwes/ServerForm.fxml"))));
+        primaryStage.setScene(new Scene(FXMLLoader.load(this.getClass().getResource("views/ServerForm.fxml"))));
         primaryStage.setTitle("ChatApp Test");
         primaryStage.show();
     }
